@@ -1,0 +1,77 @@
+<div class="ribbon">
+    <p>{{stage}}</p>
+</div>
+
+<div class="card">
+    <mat-card appearance="outlined">
+        <mat-stepper [linear]="isLinear">
+            <mat-step [stepControl]="firstFormGroup">
+                <ng-template matStepLabel>REGISTER</ng-template>
+                <div class="start-form">
+                    <h2>Please Register</h2>
+                </div>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                    <button mat-button matStepperNext routerLink="/login">Back to login</button>
+                </div>
+            </mat-step>
+            <mat-step [stepControl]="secondFormGroup">
+
+                <form [formGroup]="secondFormGroup">
+                    <ng-template matStepLabel>SUBMIT INFO</ng-template>
+                    <div class="info-form">
+                        <mat-form-field appearance="fill">
+                            <mat-label>First Name</mat-label>
+                            <input matInput formControlName="firstname" />
+                            <mat-error *ngIf="secondFormGroup.get('firstname')?.hasError('required')"> First name is
+                                required.
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput formControlName="lastname" />
+                            <mat-error *ngIf="secondFormGroup.get('lastname')?.hasError('required')"> Last Name is
+                                required.
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Email</mat-label>
+                            <input matInput formControlName="email" />
+                            <mat-error *ngIf="secondFormGroup.get('email')?.hasError('required')"> Email is required.
+                            </mat-error>
+                            <mat-error *ngIf="secondFormGroup.get('email')?.hasError('email')"> Enter a valid email.
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-form-field appearance="fill">
+                            <mat-label>State</mat-label>
+                            <mat-select formControlName="state">
+                                <mat-option value="maharashtra">Maharashtra</mat-option>
+                                <mat-option value="kerala">Kerala</mat-option>
+                                <mat-option value="karnataka">Karnataka</mat-option>
+                            </mat-select>
+                            <mat-error *ngIf="secondFormGroup.get('state')?.hasError('required')"> State is
+                                required.
+                            </mat-error>
+                        </mat-form-field>
+                        <mat-checkbox formControlName="subscribe"> Subscribe to Newsletter </mat-checkbox>
+                        <div>
+                            <button mat-button [disabled]="!secondFormGroup.valid" (click)="sbmitForm()">
+                                Continue </button>
+                        </div>
+                    </div>
+                </form>
+            </mat-step>
+            <mat-step>
+                <ng-template matStepLabel>COMPLETE</ng-template>
+                <div class="complete-form">
+                    <h2>Thank you for registering!</h2>
+                    <p>You should recieve a confirmation email momentarily containing additional details</p>
+                </div>
+            </mat-step>
+        </mat-stepper>
+    </mat-card>
+</div>
+<div>
+
+</div>

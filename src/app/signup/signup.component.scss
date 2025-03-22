@@ -1,0 +1,66 @@
+.ribbon {
+    width: 100%;
+    background-color: #2988b5;
+    display: grid;
+    place-content: center;
+    place-items: center;
+
+    p {
+        color: #ffff;
+        margin-top: 30px;
+        font-size: 32px;
+    }
+}
+
+.card {
+    margin-top: 50px;
+    width: 100%;
+    display: grid;
+    place-content: center;
+    place-items: center;
+
+    mat-card {
+        width: 750px;
+        display: flex;
+        place-content: center;
+        place-items: center;
+
+        mat-stepper {
+            margin-top: 20px;
+        }
+    }
+}
+
+.start-form {
+    display: grid;
+    grid-template-columns: 500px;
+    place-content: center;
+    margin-top: 20px;
+
+    h2 {
+        font-size: 25px;
+    }
+}
+
+.info-form {
+    display: grid;
+    grid-template-columns: 500px;
+    place-content: center;
+    place-items: center;
+    margin-top: 20px;
+
+    mat-form-field {
+        width: 450px;
+    }
+}
+
+.complete-form {
+    display: grid;
+    grid-template-columns: 500px;
+    place-content: center;
+    margin-top: 20px;
+
+    h2 {
+        font-size: 25px;
+    }
+}

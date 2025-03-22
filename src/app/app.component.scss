@@ -1,0 +1,21 @@
+.header {
+    background-color: #ffffff;
+
+    .center {
+        height: 50px;
+        width: 100%;
+        display: grid;
+        place-content: center;
+        place-items: center;
+
+        .header-logo {
+            height: 50px;
+            width: 130px;
+        }
+    }
+}
+
+.content {
+    background-color: #dedede;
+    height: 100%;
+}
