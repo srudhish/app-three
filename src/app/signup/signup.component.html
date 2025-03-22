@@ -35,14 +35,26 @@
                                 required.
                             </mat-error>
                         </mat-form-field>
+
                         <mat-form-field appearance="fill">
                             <mat-label>Email</mat-label>
                             <input matInput formControlName="email" />
-                            <mat-error *ngIf="secondFormGroup.get('email')?.hasError('required')"> Email is required.
+                            <mat-error *ngIf="secondFormGroup.get('email').hasError('required')">
+                                Email is required
                             </mat-error>
                             <mat-error *ngIf="secondFormGroup.get('email')?.hasError('email')"> Enter a valid email.
                             </mat-error>
                         </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Confirm Email</mat-label>
+                            <input matInput formControlName="confirmEmail" required />
+                            <mat-error *ngIf="secondFormGroup.get('confirmEmail').hasError('required')">
+                                Confirm email is required </mat-error>
+                            <mat-error *ngIf="emailMismatch()">
+                                Emails do not match
+                            </mat-error>
+                        </mat-form-field>
+
                         <mat-form-field appearance="fill">
                             <mat-label>State</mat-label>
                             <mat-select formControlName="state">

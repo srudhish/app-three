@@ -26,11 +26,26 @@ export class SignupComponent {
     this.secondFormGroup = _fb.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      confirmEmail: ['', [Validators.required, Validators.email]],
       state: ['', Validators.required],
       subscribe: [false, Validators.required]
     });
+
+    this.secondFormGroup.get('confirmEmail')?.setValidators([Validators.required, this.emailMatchValidator.bind(this)]);
+
     this.thirdFormGroup = _fb.group({});
+  }
+
+  emailMatchValidator(control: any) {
+    if (control.value !== this.secondFormGroup.get('email')?.value) {
+      return { mismatch: true };
+    }
+    return null;
+  }
+
+  emailMismatch() {
+    return this.secondFormGroup.get('confirmEmail')?.hasError('mismatch');
   }
 
   sbmitForm() {
